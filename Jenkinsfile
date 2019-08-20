@@ -1,10 +1,14 @@
 pipeline {   
       agent any
-    tools {
+   
+  agent {
+    node {
+      label 'master'
+    }  
+  }
+     tools {
         "org.jenkinsci.plugins.terraform.TerraformInstallation" "terraform-0.12.6"
     }
-  
-    
   stages {
     stage('checkout') {
       steps {
