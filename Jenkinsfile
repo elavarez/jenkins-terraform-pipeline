@@ -1,24 +1,28 @@
 pipeline {   
-  agent {
+      agent any
+    tools {
+        "org.jenkinsci.plugins.terraform.TerraformInstallation" "terraform-0.12.6"
+    }
+  
     node {
       label 'master'
     }  
-  }
+  
   stages {
     stage('checkout') {
       steps {
         checkout scm
-        sh 'docker pull hashicorp/terraform:light'
+        sh ''
       }
     }
     stage('init') {
       steps {
-        sh 'docker run -w /app -v /root/.aws:/root/.aws -v `pwd`:/app hashicorp/terraform:light init'
+        sh 'terraform  init'
       }
     }
     stage('plan') {
       steps {
-        sh 'docker run -w /app -v /root/.aws:/root/.aws -v `pwd`:/app hashicorp/terraform:light plan'
+        sh 'terraform plan'
       }
     }
     stage('approval') {
@@ -31,7 +35,7 @@ pipeline {
     }
     stage('apply') {
       steps {
-        sh 'docker run -w /app -v /root/.aws:/root/.aws -v `pwd`:/app hashicorp/terraform:light apply -auto-approve'
+        sh 'terraform apply -auto-approve'
         cleanWs()
       }
     }
