@@ -1,11 +1,7 @@
 pipeline {   
 
    
-  agent {
-    node {
-      label 'master'
-    }  
-  }
+  agent any
      tools {
         "org.jenkinsci.plugins.terraform.TerraformInstallation" "terraform-0.12.6"
     }
