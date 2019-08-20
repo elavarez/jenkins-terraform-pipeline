@@ -9,10 +9,7 @@ pipeline {
         TF_HOME = tool('terraform-0.12.6')
         TF_IN_AUTOMATION = "true"
         PATH = "$TF_HOME:$PATH"
-       # DYNAMODB_STATELOCK = "ddt-tfstatelock"
-       # NETWORKING_BUCKET = "ddt-networking"
-      #  NETWORKING_ACCESS_KEY = credentials('networking_access_key')
-     #   NETWORKING_SECRET_KEY = credentials('networking_secret_key')
+
     }
   stages {
     stage('checkout') {
