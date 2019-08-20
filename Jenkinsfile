@@ -3,7 +3,7 @@ pipeline {
    
   agent any
      tools {
-        "org.jenkinsci.plugins.terraform.TerraformInstallation" "terraform-0.12.6"
+        "org.jenkinsci.plugins.terraform.TerraformInstallation" "terraform-0.12.5"
     }
   stages {
     stage('checkout') {
