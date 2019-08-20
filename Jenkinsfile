@@ -4,10 +4,7 @@ pipeline {
         "org.jenkinsci.plugins.terraform.TerraformInstallation" "terraform-0.12.6"
     }
   
-    node {
-      label 'master'
-    }  
-  
+    
   stages {
     stage('checkout') {
       steps {
